@@ -1,0 +1,19 @@
+{
+  "name": "desicinema-stremio-addon",
+  "version": "1.0.0",
+  "description": "Stremio/Nuvio addon for DesiCinema.org - Indian movies and shows",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["stremio", "addon", "desicinema", "bollywood", "indian-movies"],
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2",
+    "stremio-addon-sdk": "^1.6.10"
+  }
+}
