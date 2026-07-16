@@ -233,7 +233,10 @@ const addonInterface = builder.getInterface();
 app.use(getRouter(addonInterface));
 
 // Landing page
-app.get("/", (_, res) => {
+app.get("/", (req, res) => {
+  const proto = req.protocol;
+  const host = req.get("host");
+  const manifestUrl = `${proto}://${host}/manifest.json`;
   res.send(`
     <html>
     <head><title>DesiCinema Stremio Addon</title>
@@ -245,7 +248,7 @@ app.get("/", (_, res) => {
       <p>Bollywood • Hollywood (Hindi Dubbed) • South Indian Movies</p>
       <p><a href="/manifest.json">Install Addon</a></p>
       <p><small>Or copy this URL into Stremio/Nuvio:</small><br>
-      <code>http://localhost:${PORT}/manifest.json</code></p>
+      <code>${manifestUrl}</code></p>
     </div>
     </body>
     </html>
